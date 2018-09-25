@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 @app.route('/hello', methods=['POST'])
 def hello():    
-	r = make_response(jsonify({'comment':'hello, this is heroku'}))
+	r = make_response(jsonify({'response':'hello, this is heroku'}))
 	r.headers['Content-Type'] = 'application/json'
 	return r
     
