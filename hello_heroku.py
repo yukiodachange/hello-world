@@ -12,7 +12,7 @@ headers = {'Content-Type' : 'application/json'}
 
 # PythonオブジェクトをJSONに変換する
 comment = input('Input comment to heroku > ')
-obj = {"hello" : comment} 
+obj = {'comment' : comment} 
 json_data = json.dumps(obj).encode("utf-8")
 
 req = urllib.request.Request(url, data=json_data, method=method, headers=headers)
