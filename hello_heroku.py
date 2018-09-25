@@ -11,7 +11,8 @@ method = 'POST'
 headers = {'Content-Type' : 'application/json'}
 
 # PythonオブジェクトをJSONに変換する
-obj = {"hello" : "goodmorning"} 
+comment = input('Input comment to heroku > ')
+obj = {"hello" : comment} 
 json_data = json.dumps(obj).encode("utf-8")
 
 req = urllib.request.Request(url, data=json_data, method=method, headers=headers)

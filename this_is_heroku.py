@@ -16,7 +16,7 @@ import os
 #import datetime
 
 from flask import Flask
-#from flask import request
+from flask import request
 from flask import make_response, jsonify
 #import gspread
 #from oauth2client.service_account import ServiceAccountCredentials
@@ -26,15 +26,17 @@ from flask import make_response, jsonify
 app = Flask(__name__)
 
 @app.route('/hello', methods=['POST'])
-def hello():    
-	req = request.get_json(silent=True, force=True)
-	result = req.get("result")
-    comment = 'hello, this is heroku'
-    comment = result
+def hello():
+    req = request.get_json(silent=True, force=True)
+    result = req.get("result")
+    if 'Good morning' in result:
+        comment = result
+    else:
+        comment = 'hello, this is heroku'
     
-	r = make_response(jsonify({'response':comment}))
-	r.headers['Content-Type'] = 'application/json'
-	return r
+    r = make_response(jsonify({'response':comment}))
+    r.headers['Content-Type'] = 'application/json'
+    return r
     
 '''
 @app.route('/webhook', methods=['POST'])
