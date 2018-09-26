@@ -32,7 +32,7 @@ def hello():
     if 'Good morning' in result:
         comment = result
     else:
-        comment = 'hello, this is heroku'
+        comment = 'こんにちはHEROKUです。'
     
     r = make_response(jsonify({'response':comment}))
     r.headers['Content-Type'] = 'application/json'
