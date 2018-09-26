@@ -33,6 +33,8 @@ def hello():
         comment = result
     else:
         comment = 'こんにちはHEROKUです。'
+        
+    
     
     r = make_response(jsonify({'response':comment}))
     r.headers['Content-Type'] = 'application/json'
