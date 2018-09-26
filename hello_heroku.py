@@ -3,7 +3,7 @@
 Herukuｎリクエストを投げる
 """
 
-import urllib.request
+import requests
 import json
 
 url = 'https://this-is-heroku.herokuapp.com/hello'
@@ -15,15 +15,10 @@ comment = input('Input comment to heroku > ')
 obj = {'comment' : comment} 
 json_data = json.dumps(obj).encode("utf-8")
 
-req = urllib.request.Request(url, data=json_data, method=method, headers=headers)
+req = requests.post(url, data=json_data)
 
-try:
-    with urllib.request.urlopen(req) as res:
-        body = res.read().decode('utf-8')
-except urllib.error.HTTPError as err:
-    print(err.code)
-except urllib.error.URLError as err:
-    print(err.reason)
+# エラー処理
+req.raise_for_status
 
-result_objs = json.loads(body.split('\n')[0])
+result_objs = req.json()
 print (result_objs['response'])
