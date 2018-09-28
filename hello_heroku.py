@@ -7,6 +7,8 @@ import requests
 #import json
 
 url = 'https://this-is-heroku.herokuapp.com/hello'
+url = 'http://localhost:5000/hello'
+
 method = 'POST'
 headers = {'Content-Type' : 'application/json'}
 

@@ -32,13 +32,16 @@ def hello():
     if 'Good morning' in result:
         comment = result
     else:
-        comment = 'こんにちはHEROKUです。'
-        
+        comment = 'こんにちはHEROKUです。'     
     
     
     r = make_response(jsonify({'response':comment}))
     r.headers['Content-Type'] = 'application/json'
     return r
+
+@app.route('/', methods=['GET'])
+def index():
+	return "Hello"
 
 
 if __name__ == '__main__':
